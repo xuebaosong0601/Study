@@ -1,0 +1,15 @@
+列表添加命名:lpush key value
+列表查询命令:lrange key index(0) index(10)
+集合添加命令:sadd key value (集合中同一个key的value是唯一的)
+集合查询命令: smembers key
+远程服务器上运行命令: redis-cli -h host -p port -a password
+redis键命令(用于管理Redis中的键):
+		set akey key  设置键名称
+		get akey      查询键名称
+		del akey      删除键名称
+		exists akey   检查键是否存在
+redis字符串:set akey "string"
+	    get akey 
+redis事务: 
+	启动命令:MULTI
+	执行命令:EXEC
