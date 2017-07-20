@@ -1,0 +1,90 @@
+原生态ajax:
+Ajax向服务器发送请求使用 XMLHttpRequest对象.
+
+创建XMLHttpRequest对象: variable = new XMLHttpRequest();
+
+XMLHttpRequest对象的open()和send()方法可以想服务器发送请求.
+	xmlhttp.open("GET","ajax_info.txt",true);
+   		open(method,url,async)   
+		method:请求的类型:GET或POST    
+		url:文件在服务器上的位置  
+		async:true(异步)或false(同步)
+
+xmlhttp.send();
+	send(string)
+		将请求发送到服务器. string:仅用于POST请求
+
+
+jqueryAjax:
+
+$(function(){
+	$('#send').click(function(){
+		$.ajax({
+			type: "GET",
+			url: "test.json",
+			data: {Username:$("#username").val(),content:$("#content").val()},
+			dataType: "json",
+			success: function(data){
+				
+				$('#resText').empty(); //清空resTest里面的所有内容
+				var html = '';
+				
+				$.each(data,function(commentIndex,comment){
+					html += '<div class="comment"><h6>' 
+						+ comment['username']
+						+ ':</h6><p class="para"' 
+						+ comment['content']
+						+ '</p></div>/;
+	
+				})
+				$('#resText').html(html);			
+			}
+		});
+	});	
+});
+url: 发送请求的地址
+Type: 请求方式(post或get) 默认为get
+timeout: 设置请求超时时间(毫秒) 
+async: 默认设置为true,所有请求均为异步请求 
+cache: 默认为true(当dataType为script时,默认为false),设置为false将不会从浏览器缓存中加载请求信息
+data: get请求中,将附加在url后. 对象必须为key/value格式,例如{foo1:"bar1",foo2:"bar2"}转换为&foo1=bar1&foo2=bar2.如果是数组
+	JQuery将自动为不同值对应同一个名称,例如{foo:["bar1","bar2"]}转换为&foo=bar1&foo=bar2
+dataType: 作为回调函数参数传递.可用的类型有: xml , html , script , json , jsonp , text 
+beforeSend: 发送请求前可以修改XMLHttpRequest对象的函数
+complete: 请求完成后调用的回调函数(请求成功或失败时均调用)
+success: 请求成功后调用的回调函数,有两个参数
+	function(data,textStatus)
+	//data可能是xmlDoc,jsonObj,html,text等等
+error: 请求失败调用函数 
+jsonp: 在一个jsonp请求中重写回调函数的名字.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

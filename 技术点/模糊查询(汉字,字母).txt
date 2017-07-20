@@ -1,0 +1,22 @@
+1,使用正则判断输入内容是否是英文
+	public static boolean isEnglish(String charaString){
+		
+		return charaString.matches("^[a-zA-Z]*");
+		
+		}
+
+2.如果是英文字母(每个字母之间加上%以便可以按首字母查)
+	//传入字符串 strs
+	//创建char数组对象
+	char[] chars = strs.toCharArray();
+	StringBuffer str = new StringBuffer();
+	//循环遍历char数组
+	for(char c : chars){
+		str.append(c);
+		str.append(%);
+	}
+	//删除拼接字符串最后一个%号
+	str.delete(str.length()-1,str.length());
+	
+3.sql语句
+	where key like  #{"'%' + value + '%'"}

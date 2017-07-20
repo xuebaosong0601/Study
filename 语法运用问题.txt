@@ -1,0 +1,16 @@
+1.try...catch...finally  这样的语句中.finally一定会执行,如果finally中有return会执行finally中的return,如果finally中没有return会执行try中的return.
+2.首先 default 用在 switch case 语句里。如果参数不满足任何 case，则为 default 情况
+3.class.forname();加载参数指定的类，并且初始化它。
+4.newInstance使用newInstance时候，就必须保证：1、这个类已经加载；2这个类已经连接了
+5.单例模式,饱汉式:创建私有化构造方法,定义一个private static 类类型变量,提供get方法,调用该方法,如果实例对象为空创建实例对象. 饿汉式:创建私有化构造方法,将自身实例化对象设置一个属性,用static和final修饰.
+6.判断字符串是否为空
+方法一: 最多人使用的一个方法, 直观, 方便, 但效率很低:
+	 if(s == null ||"".equals(s));
+方法二: 比较字符串长度, 效率高, 是我知道的最好一个方法:
+         if(s == null || s.length() <= 0);
+方法三: Java SE 6.0 才开始提供的方法, 效率和方法二几乎相等, 但出于兼容性考虑, 推荐使用方法二.
+         if(s == null || s.isEmpty());
+方法四: 这是一种比较直观,简便的方法,而且效率也非常的高,与方法二、三的效率差不多:
+         if (s == null || s == "");
+7.数组转换成集合时,使用方法asList();
+8.集合转换成数组时,使用方法toArray();
